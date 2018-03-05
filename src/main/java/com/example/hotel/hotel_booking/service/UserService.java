@@ -1,11 +1,10 @@
 package com.example.hotel.hotel_booking.service;
 
-import com.example.hotel.hotel_booking.dao.UserRepository;
+import com.example.hotel.hotel_booking.repository.UserRepository;
 import com.example.hotel.hotel_booking.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Spliterator;
 import java.util.Spliterators;
@@ -29,5 +28,9 @@ public class UserService {
                             false)
                     .collect(Collectors.toList());
         }
+
+    public User findUser() {
+        return repository.findOne(1L);
+    }
     }
 

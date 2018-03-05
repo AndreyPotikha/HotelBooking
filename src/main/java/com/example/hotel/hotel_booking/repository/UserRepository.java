@@ -1,4 +1,4 @@
-package com.example.hotel.hotel_booking.dao;
+package com.example.hotel.hotel_booking.repository;
 
 import com.example.hotel.hotel_booking.model.User;
 import org.springframework.data.repository.CrudRepository;

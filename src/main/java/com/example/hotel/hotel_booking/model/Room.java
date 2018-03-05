@@ -5,27 +5,23 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "room")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
-    private String surname;
-    private String numberOfPhone;
-    private String password;
+    private int number;
+    private String category;
+    private double price;
     private String arrivalDate;
     private String departureDate;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "room_number")
-    private Room room;
-
-
-
+    private String breakfast;
+    @OneToOne
+    private User user;
 }

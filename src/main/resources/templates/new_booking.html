@@ -29,7 +29,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -41,31 +40,29 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/room">Main</a></li>
+                <li><a href="/room">Main</a></li>
                 <li><a href="/room/editor">Booking room</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/room/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+                <li class="active">
+                    <a href="/room/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-<br/>
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-8 text-left">
-            <div>
-                <div class="well">
-                    <div class="panel-body">
-                        <h1>Welcome. This is a test task on the topic - Hotel booking</h1>
-                    </div>
-                </div>
-            </div>
 
-            <p th:text="${message}"/>
-
-        </div>
-    </div>
+<div class="container">
+<p>Your price:</p>
+<p th:text="${new_booking_price}"/>
+<p th:text="${new_booking}"/>
+<p>Your number of room:</p>
+<p th:text="${new_booking_number_room}"/>
+<p>Your category of room:</p>
+<p th:text="${new_booking_category_room}"/>
+<p>Your have breakfast:</p>
+<p th:text="${new_booking_breakfast}"/>
 </div>
+
 </body>
 </html>

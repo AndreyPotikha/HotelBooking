@@ -25,7 +25,7 @@
             }
         }
     </style>
-    <title>Страница редактора</title>
+    <title>Booking room</title>
 </head>
 <body>
 
@@ -41,36 +41,40 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/user">Статьи</a></li>
-                <li><a href="/user/editor" class="active">Добавить свою</a></li>
+                <li><a href="/room">Main</a></li>
+                <li><a href="/room/editor" class="active">Booking room</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Залогироваться</a></li>
+                <li><a href="/room/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-8 text-left">
-            <form action="#" th:action="@{/user/editor/submit}" th:object="${user}" method="post">
-                <h1>Создание статьи</h1>
-                <div class="form-group">
-                    <label for="usr">Имя</label>
-                    <input type="text" class="form-control" id="usr" th:field="*{name}"/>
+            <div class="container">
+                <div th:each="room : ${rooms}">
+                <div class="col-md-3">
+                        <h4>Number:</h4>
+                        <p th:text="${room.number}"/>
+                        <p th:text="${room.category}"/>
+                        <p th:text="${room.price} +  price"/>
+                        <p>Breakfast: 20</p>
+                        <hr/>
                 </div>
-                <div class="form-group">
-                    <label for="comment">Фамилия</label>
-                    <textarea class="form-control" rows="20" id="comment" th:field="*{surname}"></textarea>
                 </div>
+            </div>
 
-                <button type="submit" class="btn btn-success">Сохранить</button>
-            </form>
-            <hr/>
-        </div>
-    </div>
-</div>
+            <div class="container">
+                    <form action="#" th:action="@{/room/editor/submit}" th:object="${choice_room}" method="pos">
+                        <p>Enter number of room hear: <input type="text" id="name" th:field="*{number}"/></p>
+                        <p>Choose arrival date: <input type="date" name="calendar" th:field="*{arrivalDate}"/></p>
+                        <p>Choose departure date: <input type="date" name="calendar" th:field="*{departureDate}"/></p>
+                        <p><input type="checkbox" name="option2" value="true" th:field="*{breakfast}"/>Breakfast</p>
+                        <button type="submit" class="btn btn-success">book it</button>
+                        <hr/>
+                    </form>
+
+            </div>
 
 </body>
 </html>

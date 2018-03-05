@@ -25,7 +25,7 @@
             }
         }
     </style>
-    <title>Hotel Booking</title>
+    <title>Login page</title>
 </head>
 <body>
 
@@ -41,31 +41,51 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/room">Main</a></li>
+                <li><a href="/room">Main</a></li>
                 <li><a href="/room/editor">Booking room</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/room/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
+                <li class="active">
+                    <a href="/room/login"><span class="glyphicon glyphicon-log-in"></span> Sign in</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-<br/>
+
 <div class="container-fluid text-center">
     <div class="row content">
-        <div class="col-sm-8 text-left">
-            <div>
-                <div class="well">
-                    <div class="panel-body">
-                        <h1>Welcome. This is a test task on the topic - Hotel booking</h1>
+        <div class="col-sm-4 text-left">
+
+            <form th:action="@{/room/login}" method="post">
+                <fieldset>
+                    <h2>Enter data</h2>
+                    <div th:if="${param.error}">
+                        <div class="alert alert-danger">
+                            You entered incorrect data
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <p th:text="${message}"/>
-
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="username" type="text" class="form-control" name="username"
+                               placeholder="логин" required="required"/>
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password"
+                               placeholder="пароль" required="required"/>
+                    </div>
+                    <br/>
+                    <div>
+                        <button type="submit" class="btn btn-success">Admin</button>
+                    </div>
+                </fieldset>
+            </form>
+            <hr/>
         </div>
     </div>
 </div>
+
 </body>
 </html>
